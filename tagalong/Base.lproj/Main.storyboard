@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="width" constant="40" id="BsH-GC-wzg"/>
                                     <constraint firstAttribute="width" secondItem="z9e-kq-H0X" secondAttribute="height" multiplier="1:1" id="deY-Vk-8Lq"/>
                                 </constraints>
-                                <state key="normal" image="ic_camera.png"/>
+                                <state key="normal" image="ic_camera_alt"/>
                                 <connections>
                                     <action selector="recordVideo:" destination="hLB-Jm-KGN" eventType="touchDownRepeat" id="nHP-Xl-ExI"/>
                                     <action selector="shotPress:" destination="hLB-Jm-KGN" eventType="touchUpInside" id="qJc-jD-21y"/>
@@ -35,7 +35,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="47" id="l2a-yp-ddv"/>
                                 </constraints>
-                                <state key="normal" image="ic_camera_front.png"/>
+                                <state key="normal" image="ic_camera_front"/>
                                 <connections>
                                     <action selector="switchCamera:" destination="hLB-Jm-KGN" eventType="touchUpInside" id="Mqx-Oa-LiR"/>
                                 </connections>
@@ -111,14 +111,14 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <state key="normal" title="SIGN UP">
-                                    <color key="titleColor" red="0.0" green="0.73725490199999999" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.1843137255" green="0.51764705879999995" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="vL4-aQ-YEE" kind="show" identifier="tosignupsegue" id="a0a-5V-WMc"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-2.png" translatesAutoresizingMaskIntoConstraints="NO" id="g8L-Qe-PQH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="g8L-Qe-PQH">
                                 <rect key="frame" x="180" y="28" width="240" height="167"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="167" id="TXj-GG-PXC"/>
@@ -133,7 +133,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <state key="normal" title="LOG IN">
-                                    <color key="titleColor" red="0.0" green="0.73725490199999999" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.1843137255" green="0.51764705879999995" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -141,7 +141,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.73725490199999999" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.18431372549019609" green="0.51764705882352946" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="eNT-eK-kqB" firstAttribute="leading" secondItem="iQQ-bs-Qhh" secondAttribute="leading" id="6Ev-ED-n3k"/>
                             <constraint firstItem="iQQ-bs-Qhh" firstAttribute="top" secondItem="eNT-eK-kqB" secondAttribute="bottom" constant="35" id="8GN-Un-ave"/>
@@ -187,7 +187,7 @@
                                     <constraint firstAttribute="width" constant="91" id="3TL-Ua-j7m"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oaH-jw-SaO">
@@ -198,7 +198,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <state key="normal" title="SUBMIT">
-                                    <color key="titleColor" red="0.0" green="0.73725490199999999" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.1843137255" green="0.51764705879999995" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -208,11 +208,11 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sH2-Jo-mcH">
                                 <rect key="frame" x="16" y="102" width="91" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.73725490199999999" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.1843137255" green="0.51764705879999995" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gXq-ZK-0gt" firstAttribute="trailing" secondItem="sH2-Jo-mcH" secondAttribute="trailing" id="2bh-WI-acy"/>
                             <constraint firstItem="vAO-Ga-nOH" firstAttribute="top" secondItem="Z4c-Vh-juJ" secondAttribute="bottom" constant="111" id="2xK-XL-m7c"/>
@@ -255,7 +255,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKl-c0-LA6">
                                 <rect key="frame" x="79" y="53" width="91" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V60-TK-9fA">
@@ -274,7 +274,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxy-iS-T4a">
                                 <rect key="frame" x="79" y="148" width="91" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RyL-AR-88d">
@@ -290,7 +290,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <state key="normal" title="SUBMIT">
-                                    <color key="titleColor" red="0.0" green="0.73725490199999999" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.1843137255" green="0.51764705879999995" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -303,11 +303,11 @@
                                     <constraint firstAttribute="width" constant="91" id="RSs-EU-GlB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.73725490199999999" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.1843137255" green="0.51764705879999995" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qe7-hl-YoI" firstAttribute="leading" secondItem="jLe-TQ-e5Q" secondAttribute="leadingMargin" constant="50" id="408-Fh-Sbk"/>
                             <constraint firstItem="mWe-Gl-f9p" firstAttribute="trailing" secondItem="bxy-iS-T4a" secondAttribute="trailing" id="BQr-cB-BLI"/>
@@ -367,9 +367,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_camera.png" width="190" height="165"/>
-        <image name="ic_camera_front.png" width="190" height="165"/>
+        <image name="ic_camera_alt" width="24" height="24"/>
+        <image name="ic_camera_front" width="24" height="24"/>
         <image name="ic_close.png" width="190" height="165"/>
-        <image name="logo-2.png" width="190" height="165"/>
+        <image name="logo.png" width="641" height="641"/>
     </resources>
 </document>

@@ -80,7 +80,7 @@ class SignupViewController: UIViewController {
             if let err = error {
                 println(err.localizedFailureReason)
             }
-            
+            println(self.response)
             
             if self.response == "user created"
             {

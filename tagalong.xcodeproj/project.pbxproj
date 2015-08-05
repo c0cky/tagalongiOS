@@ -29,6 +29,7 @@
 		5777D1A41B725244001C5FB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5777D1A11B725244001C5FB1 /* ViewController.swift */; };
 		5777D1A81B725357001C5FB1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5777D1A51B725357001C5FB1 /* Account.swift */; };
 		5777D1A91B725357001C5FB1 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5777D1A71B725357001C5FB1 /* Alamofire.swift */; };
+		5777D1AB1B7256BA001C5FB1 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5777D1AA1B7256BA001C5FB1 /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		5777D1A51B725357001C5FB1 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		5777D1A61B725357001C5FB1 /* Alamofire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alamofire.h; sourceTree = "<group>"; };
 		5777D1A71B725357001C5FB1 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
+		5777D1AA1B7256BA001C5FB1 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				5777D1871B72521E001C5FB1 /* AppDelegate.swift */,
 				5777D1691B725113001C5FB1 /* Main.storyboard */,
 				5777D16C1B725113001C5FB1 /* Images.xcassets */,
+				5777D1AA1B7256BA001C5FB1 /* logo.png */,
 				5777D16E1B725113001C5FB1 /* LaunchScreen.xib */,
 				5777D1641B725113001C5FB1 /* tagalong.xcdatamodeld */,
 				5777D1601B725113001C5FB1 /* Supporting Files */,
@@ -242,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5777D1AB1B7256BA001C5FB1 /* logo.png in Resources */,
 				5777D16B1B725113001C5FB1 /* Main.storyboard in Resources */,
 				5777D1701B725113001C5FB1 /* LaunchScreen.xib in Resources */,
 				5777D16D1B725113001C5FB1 /* Images.xcassets in Resources */,
