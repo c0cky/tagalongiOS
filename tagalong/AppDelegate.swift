@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  tagalong
+//  testing
 //
-//  Created by Camron Godbout on 8/5/15.
+//  Created by Camron Godbout on 2/16/15.
 //  Copyright (c) 2015 Camron Godbout. All rights reserved.
 //
 
@@ -13,11 +13,87 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var username : String = ""
+    var password : String = ""
+    var apikey : String = ""
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+//        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        var exampleViewController: ExampleViewController = mainStoryboard.instantiateViewControllerWithIdentifier("ExampleController") as ExampleViewController
+//        
+//        self.window?.rootViewController = exampleViewController
+//        
+//        self.window?.makeKeyAndVisible()
+//        
+//        return true
+//        ********~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
+//        The ExampleViewController would be the new initial view controller you would like to show.
+//        
+//        The steps explained:
+//        
+//        1. Create a new window with the size of the current window and set it as our main window
+//        2. Instantiate a storyboard that we can use to create our new initial view controller
+//        3. Instantiate our new initial view controller based on it's Storyboard ID
+//        4. Set our new window's root view controller as our the new controller we just initiated
+//        5. Make our new window visible
+//        ********~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
+        
+        //if the user has data in the phone we grab it and go to the main camera view. If not we prompt them
+        //to login or signup
+        
+        if checkLocalCredentials()
+        {
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            var cameraview: ViewController =
+            mainStoryboard.instantiateViewControllerWithIdentifier("cameraviewcontroller") as! ViewController
+            self.window?.rootViewController = cameraview
+            self.window?.makeKeyAndVisible()
+        }
+        else
+        {
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            var loginsignup: LoginSignUpController = mainStoryboard.instantiateViewControllerWithIdentifier("loginsignupviewcontroller") as! LoginSignUpController
+            self.window?.rootViewController = loginsignup
+            self.window?.makeKeyAndVisible()
+        }
         return true
+    }
+    
+    func checkLocalCredentials() -> Bool
+    {
+        let entityDescription =
+        NSEntityDescription.entityForName("Account",
+            inManagedObjectContext: managedObjectContext!)
+        
+        let request = NSFetchRequest()
+        request.entity = entityDescription
+        
+        var error: NSError?
+        
+        var objects = managedObjectContext?.executeFetchRequest(request,
+            error: &error)
+        
+        if let results = objects {
+            
+            if results.count > 0 {
+                let match = results[0] as! NSManagedObject
+                
+                username = match.valueForKey("username") as! String
+                password = match.valueForKey("password") as! String
+                apikey = match.valueForKey("apikey") as! String
+                
+                println(username)
+                println(password)
+                println(apikey)
+                return true
+            }
+        }
+        return false
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -47,14 +123,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Core Data stack
 
     lazy var applicationDocumentsDirectory: NSURL = {
-        // The directory the application uses to store the Core Data store file. This code uses a directory named "com.camron.tagalong" in the application's documents Application Support directory.
+        // The directory the application uses to store the Core Data store file. This code uses a directory named "com.camron.testing" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         return urls[urls.count-1] as! NSURL
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = NSBundle.mainBundle().URLForResource("tagalong", withExtension: "momd")!
+        let modelURL = NSBundle.mainBundle().URLForResource("testing", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
 
@@ -62,17 +138,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
         // Create the coordinator and store
         var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("tagalong.sqlite")
+        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("testing.sqlite")
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
         if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil, error: &error) == nil {
             coordinator = nil
             // Report any error we got.
-            var dict = [String: AnyObject]()
+            let dict = NSMutableDictionary()
             dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
             dict[NSLocalizedFailureReasonErrorKey] = failureReason
             dict[NSUnderlyingErrorKey] = error
-            error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict)
+            error = NSError(domain: "YOUR_ERROR_DOMAIN", code: 9999, userInfo: dict as [NSObject : AnyObject])
             // Replace this with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog("Unresolved error \(error), \(error!.userInfo)")
