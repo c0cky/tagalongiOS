@@ -118,6 +118,9 @@ class SignupViewController: UIViewController {
         self.view.endEditing(true);
     }
     
+    @IBAction func doneButtonClicked(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

@@ -78,6 +78,11 @@ class LoginViewController: UIViewController {
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true);
     }
+    
+    @IBAction func doneButtonClick(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
 
     /*
     // MARK: - Navigation
