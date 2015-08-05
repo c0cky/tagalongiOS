@@ -81,7 +81,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UINavigationC
         
                         if device.position == AVCaptureDevicePosition.Back
                         {
-//
                               backCamera = device as! AVCaptureDevice
                         }
                         if device.position == AVCaptureDevicePosition.Front
@@ -94,13 +93,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UINavigationC
                         audio = device as! AVCaptureDevice
                     }
                 }
-        
                 if backCamera != nil {
                         println("Capture device found")
                         beginSession()
                 }
             //camera code end
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -234,22 +231,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UINavigationC
         if captureSession.canAddOutput(stillImageOutput) {
             captureSession.addOutput(stillImageOutput)
         }
-        var videoConnection = stillImageOutput.connectionWithMediaType(AVMediaTypeVideo)
-        
-        if videoConnection != nil {
-            stillImageOutput.captureStillImageAsynchronouslyFromConnection(stillImageOutput.connectionWithMediaType(AVMediaTypeVideo))
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        if let videoConnection = self.stillImageOutput.connectionWithMediaType(AVMediaTypeVideo) {
+            self.stillImageOutput.captureStillImageAsynchronouslyFromConnection(videoConnection)
                 { (imageDataSampleBuffer, error) -> Void in
                     println(error)
                     println(imageDataSampleBuffer)
-                    self.imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
+                    
+                    
+                    let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
+                    
+                    
                     if self.cameraSide == true
                     {
-                        let flipimage = CIImage(data: self.imageData)
+                        let flipimage = CIImage(data: imageData)
                         self.image = UIImage(CIImage: flipimage, scale: 1.0, orientation: UIImageOrientation.LeftMirrored)
                     }
                     else
                     {
-                        self.image = UIImage(data: self.imageData)
+                        self.image = UIImage(data: imageData)
                     }
                     self.imageView = UIImageView(image: self.image)
                     let bounds: CGRect = UIScreen.mainScreen().bounds
@@ -264,8 +264,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UINavigationC
                     self.takePhotoButton.enabled = false
                     self.sendOffButton.hidden = false
                     self.sendOffButton.enabled = true
+                    self.imageData = imageData
             }}
-        
+        }
         
     }
     
