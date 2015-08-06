@@ -218,6 +218,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UINavigationC
         self.view.bringSubviewToFront(frontCameraButton)
         previewLayer?.frame = self.view.layer.frame
         captureSession.startRunning()
+        
+        stillImageOutput.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
+        if captureSession.canAddOutput(stillImageOutput) {
+            captureSession.addOutput(stillImageOutput)
+        }
+        
     }
     
     
@@ -227,20 +233,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UINavigationC
     *
     */
     @IBAction func shotPress(sender: UIButton) {
-        stillImageOutput.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
-        if captureSession.canAddOutput(stillImageOutput) {
-            captureSession.addOutput(stillImageOutput)
-        }
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
         if let videoConnection = self.stillImageOutput.connectionWithMediaType(AVMediaTypeVideo) {
             self.stillImageOutput.captureStillImageAsynchronouslyFromConnection(videoConnection)
                 { (imageDataSampleBuffer, error) -> Void in
-                    println(error)
-                    println(imageDataSampleBuffer)
-                    
-                    
                     let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
-                    
                     
                     if self.cameraSide == true
                     {
