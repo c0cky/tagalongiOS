@@ -18,7 +18,6 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    var response : String = ""
     var apiresponse : String = ""
     
     @IBAction func submitButtonClick(sender: UIButton) {
@@ -37,30 +36,19 @@ class SignupViewController: UIViewController {
                 "email"   :emailField.text,
                 "password":passwordField.text
             ]
-            request(.POST, "http://tagalongapp.co/cusr/",parameters: parameters, encoding: .JSON).responseString { (_, _, stringresponse, _) in
+//
+            request(.POST, "http://tagalongapp.co/cusr/" ,parameters: parameters).responseString { (_, _, stringresponse, _) in
                 println("RESPONSE")
                 if let actualString = stringresponse{
-                    self.response = actualString
+                    var tempArray = split(actualString) {$0 == " "}
+                    self.apiresponse = tempArray[0]
                 } else
                 {
                     let alert = UIAlertController(title: "Error", message: "Error in login server", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
                 }
-            }
-            let loginparam =
-            [
-                "username":usernameField.text,
-                "password":passwordField.text
-            ]
-            
-            request(.POST, "http://tagalongapp.co/lusr/", parameters: loginparam, encoding: .JSON).responseString { (_,_,loginresponse, _) in
-            
-                if let loginString = loginresponse
-                {
-                    var tempArray = split(loginString) {$0 == " "}
-                    self.apiresponse = tempArray[0]
-                }
+                
                 let entityDescription =
                 NSEntityDescription.entityForName("Account",
                     inManagedObjectContext: self.managedObjectContext!)
@@ -71,18 +59,18 @@ class SignupViewController: UIViewController {
                 account.username = self.usernameField.text
                 account.password = self.passwordField.text
                 account.apikey = self.apiresponse
-                
             }
+            
             var error : NSError?
             
-            managedObjectContext?.save(&error)
+            self.managedObjectContext?.save(&error)
             
             if let err = error {
                 println(err.localizedFailureReason)
             }
-            println(self.response)
+            println(self.apiresponse)
             
-            if self.response != ""
+            if self.apiresponse != ""
             {
                 let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let cameraViewController = mainStoryboard.instantiateViewControllerWithIdentifier("cameraviewcontroller") as! ViewController

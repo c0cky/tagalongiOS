@@ -39,13 +39,16 @@ class LoginViewController: UIViewController {
             self.presentViewController(alert, animated: true, completion: nil)
         }
         
+//        let url =
         let url = "http://tagalongapp.co/lusr/"
         let parameters =
         [
             "username" : usernameField.text,
             "password" : passwordField.text
         ]
-        request(.POST, url, parameters: parameters, encoding: .JSON).responseString{ (_, _, string, _) in
+        request(.POST, url, parameters: parameters).responseString{ (_, _, string, _) in
+            println(url)
+            println(parameters)
             if let loginString = string
             {
                 var tempArray = split(loginString) {$0 == " "}
