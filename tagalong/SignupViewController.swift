@@ -82,7 +82,7 @@ class SignupViewController: UIViewController {
             }
             println(self.response)
             
-            if self.response == "user created"
+            if self.response != ""
             {
                 let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let cameraViewController = mainStoryboard.instantiateViewControllerWithIdentifier("cameraviewcontroller") as! ViewController
