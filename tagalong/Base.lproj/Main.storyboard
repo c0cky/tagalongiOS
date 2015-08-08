@@ -45,7 +45,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="m4b-o9-sST"/>
                                 </constraints>
-                                <state key="normal" image="ic_close.png"/>
+                                <state key="normal" image="ic_clear"/>
                                 <connections>
                                     <action selector="closeOutPreview:" destination="hLB-Jm-KGN" eventType="touchUpInside" id="8Sa-fI-XBl"/>
                                 </connections>
@@ -423,7 +423,7 @@
         <image name="ic_arrow_back" width="24" height="24"/>
         <image name="ic_camera_alt" width="24" height="24"/>
         <image name="ic_camera_front" width="24" height="24"/>
-        <image name="ic_close.png" width="190" height="165"/>
+        <image name="ic_clear" width="24" height="24"/>
         <image name="logo.png" width="641" height="641"/>
     </resources>
 </document>
