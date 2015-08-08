@@ -52,6 +52,10 @@ class LoginViewController: UIViewController {
                 self.apiresponse = tempArray[0]
                 println(loginString)
             }
+            
+            if (self.apiresponse == "failed login" || self.apiresponse == "disabled" || self.apiresponse == "") {
+                return
+            }
             let entityDescription =
             NSEntityDescription.entityForName("Account",
                 inManagedObjectContext: self.managedObjectContext!)
